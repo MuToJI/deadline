@@ -1,0 +1,13 @@
+{
+  "autoload": {
+    "files": [
+      "msn.php",
+      "Controls/Home.php",
+      "Controls/Login.php",
+      "Controls/Delete.php",
+      "Controls/Save.php",
+      "Controls/Registration.php",
+      "Controls/Controller.php"
+    ]
+  }
+}

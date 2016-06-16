@@ -1,0 +1,15 @@
+body{
+    background:lightsteelblue;
+    font-family: "Segoe Script";
+}
+.row {
+    margin-bottom:10px;
+
+}
+.row label {
+    display:block;
+}
+.to_reg {
+    font-size:0.9em;
+}
+
