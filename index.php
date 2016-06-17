@@ -7,7 +7,7 @@ session_start();
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 define('SITE_URL', 'http://endline/index.php');
-require 'E:\OpenServer\domains\finish\vendor\autoload.php';
+require 'vendor\autoload.php';
 Lcs\connection(['host' => 'localhost', 'dbname' => 'blog', 'user' => 'root', 'password' => '', 'encoding' => 'utf8']);
 Lcs\routes($_SERVER['REQUEST_URI'], [
     'home' => '\deadline\Controls\Home',
