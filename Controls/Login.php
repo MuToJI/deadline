@@ -7,7 +7,7 @@ class Login extends Controller
         if (!empty(Lcs\user())) {
             Lcs\redirect(SITE_URL);
         }
-        echo Lcs\template('..templates/aut.php', [
+        echo Lcs\template('templates\aut.php', [
             'token' => Lcs\token(),
             'login' => empty($_POST['login']) ? '' : $_POST['login'],
             'site_url' => SITE_URL,

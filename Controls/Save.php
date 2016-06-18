@@ -1,12 +1,14 @@
 <?php namespace Controls;
 
+use deadline\Controls\Controller;
 use deadline\Lcs;
 
 class Save extends Controller
 {
     public function save()
     {
-        if (empty(Lcs\user())) {
+        $user = Lcs\user();
+        if (empty($user())) {
             header('Location:' . sprintf('%s?action=login', SITE_URL));
         }
         $message_id = empty($_POST['message_id']) ? null : (int)$_POST['message_id'];
@@ -14,7 +16,7 @@ class Save extends Controller
         if (!empty($message) && Lcs\valid_token($_POST['token'])) {
             isset($message_id)
                 ? Lcs\update_message(Lcs\connection(), $message, $message_id)
-                : Lcs\insert_message(Lcs\connection(), $message, Lcs\$user['id']);
+                : Lcs\insert_message(Lcs\connection(), $message, $user['id']);
         }
         header('Location:' . sprintf('%s?action=home&message_id=%d', SITE_URL, $message_id));
     }

@@ -22,7 +22,7 @@ class Registration extends Controller
                 }
             }
             if (empty($login) or empty($password)) {
-                header('Location:Registration.php');
+                header('Location:\Registration.php');
             }
             $login = trim($_POST['login']);
             $password = md5(trim($_POST['password']));

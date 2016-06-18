@@ -1,4 +1,6 @@
 <?php namespace deadline\Lcs;
+use Exception;
+use deadline\Controls\Controller;
 /**
  * @param array $config
  * @return \PDO
@@ -61,9 +63,10 @@ function update_message(\PDO $connection, $message, $message_id)
 }
 
 /**
+ * @param \PDO $connection
  * @return mixed
  */
-function pegi()
+function pegi(\PDO $connection)
 {
     if (!empty($connection)) {
         $sql = ('SELECT COUNT(`id`) FROM `messages`');
@@ -75,9 +78,10 @@ function pegi()
 /**
  * @param \PDO $connection
  * @param null $message_id
+ * @param $per_page
  * @return array
  */
-function load_messages(\PDO $connection, $message_id = null, $per_page)
+ function load_messages(\PDO $connection, $message_id = null, $per_page)
 {
     $page = !empty($_GET['p']) ? (int)$_GET['p'] : 1;
     $limit = $page * $per_page - $per_page;
@@ -104,12 +108,12 @@ function valid_token($token)
  * @param string $name
  * @param array $vars
  * @return string
- * @throws \Exception
+ * @throws exception
  */
 function template($name, array $vars = [])
 {
     if (!is_file($name)) {
-        throw new \Exception("Could not load template file {$name}");
+        throw new exception("Could not load template file {$name}");
     }
     ob_start();
     extract($vars);

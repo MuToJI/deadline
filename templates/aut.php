@@ -3,7 +3,7 @@
 <head>
     <title>Авторизация пользователей</title>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
-    <link href="stylo.css" rel="stylesheet" type="text/css" />
+    <link href="\stylo.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <form action="<?= $site_url ?>?action=login" method="post">
@@ -20,6 +20,6 @@
         <input type="hidden" name="token" value="<?= $token ?>">
     </div>
 </form>
-<p class="to_reg"><a href="registr.php">Регистрация</a>.</p>
+<p class="to_reg"><a href="Controls\Registration.php">Регистрация</a>.</p>
 </body>
 </html>

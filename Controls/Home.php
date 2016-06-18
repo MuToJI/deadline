@@ -14,11 +14,11 @@ class Home extends Controller
             Lcs\redirect(SITE_URL . '?action=login');
         }
         $message_id = empty($params['message_id']) ? null : (int)$params['message_id'];
-        $messages = Lcs\load_messages(\deadline\Lcs\connection(), $message_id);
-        $pg = Lcs\pegi();
         $per_page = 3;
+        $messages = Lcs\load_messages(\deadline\Lcs\connection(), $message_id, $per_page);
+        $pg = Lcs\pegi(\deadline\Lcs\connection());
         $pages = ceil($pg / $per_page);
-        echo Lcs\template('../templates/home.php', [
+        echo Lcs\template('templates\Home.php', [
             'messages' => $messages,
             'token' => Lcs\token(),
             'site_url' => SITE_URL,

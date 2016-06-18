@@ -4,6 +4,9 @@ use deadline\Lcs;
 
 class Delete extends Controller
 {
+    /**
+     *
+     */
     public function delete()
     {
 
